@@ -1,0 +1,223 @@
+/* Reset de márgenes y paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables de color */
+:root {
+    --color-principal: #ffcae6;
+    --color-secundario: #FF4081;
+    --color-letras: #9a9999;
+    --color-fondo: #f3f3f3;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-fondo);
+    color: #333;
+}
+
+h1, h2 {
+    color: var(--color-letras);
+    text-align: center;
+}
+
+/* Formulario de Agregar Producto */
+.form-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid var(--color-secundario);
+}
+
+h2 {
+    font-size: 2em;
+    color: var(--color-principal);
+    margin-bottom: 20px;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    text-align: left;
+}
+
+label {
+    font-size: 1.1em;
+    color: var(--color-letras);
+    margin-bottom: 5px;
+}
+
+input, textarea, select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+button.submit-btn {
+    background-color: var(--color-secundario);
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+button.submit-btn:hover {
+    background-color: var(--color-principal);
+}
+
+/* Mensajes de confirmación */
+#mensaje {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: var(--color-secundario);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+header .logo img {
+    width: 100px; /* Ajusta el tamaño del logo */
+}
+
+.social-media {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+
+.social-media img {
+    width: 25px;
+    height: 25px;
+    transition: transform 0.3s ease;
+}
+
+.social-media img:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+}
+
+/* Contenedor de las acciones de autenticación y carrito */
+.header-actions-wrapper {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Estilo general para los botones de autenticación */
+.auth-button {
+    text-decoration: none;
+    padding: 8px 15px;
+    background-color: transparent;
+    color: var(--color-);
+    border: 1px solid var(--color-principal);
+    border-radius: 5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover para los botones */
+.auth-button:hover {
+    background-color: var(--color-secundario);
+    color: white;
+}
+
+.cta-button:hover {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+/* Carrito */
+.cart-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.cart-link img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Contador del carrito */
+.cart-count {
+    position: absolute;
+    top: -8px; /* Ajusta la posición superior */
+    right: -6px; /* Ajusta la posición derecha */
+    background-color: var(--color-secundario);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 50%;
+    font-size: 0.7em;
+}
+
+/* Banner */
+.banner {
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.banner h2 {
+    font-size: 2.5em;
+}
+
+.banner p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.cta-button {
+    background-color: var(--color-secundario);
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1em;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+}

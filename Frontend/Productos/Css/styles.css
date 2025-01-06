@@ -1,0 +1,230 @@
+/* Reset de márgenes y paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables de color */
+:root {
+    --color-principal: #ffcae6; /* Usar el color principal de la tienda */
+    --color-secundario: #FF4081; /* Usar el color principal de la tienda */
+    --color-letras: #9a9999; /* Usar el color principal de la tienda */
+    --color-fondo: #f3f3f3; /* Color de fondo similar al de la página actual */
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-fondo);
+    color: #333;
+}
+h1, h2, h3 {
+    color: var(--color-letras);
+}
+p {
+    color: #333;
+}
+.envio {
+    color: var(--color-letras);
+}
+
+h2, p {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+header .logo img {
+    width: 100px; /* Ajusta el tamaño del logo */
+}
+
+.social-media {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+
+.social-media img {
+    width: 25px;
+    height: 25px;
+    transition: transform 0.3s ease;
+}
+
+.social-media img:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+}
+
+/* Contenedor de las acciones de autenticación y carrito */
+.header-actions-wrapper {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Estilo general para los botones de autenticación */
+.auth-button {
+    text-decoration: none;
+    padding: 8px 15px;
+    background-color: transparent;
+    color: var(--color-secundario);
+    border: 1px solid var(--color-principal);
+    border-radius: 5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover para los botones */
+.auth-button:hover {
+    background-color: var(--color-secundario);
+    color: white;
+}
+
+.cta-button:hover {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+/* Carrito */
+.cart-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.cart-link img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Contador del carrito */
+.cart-count {
+    position: absolute;
+    top: -8px; /* Ajusta la posición superior */
+    right: -6px; /* Ajusta la posición derecha */
+    background-color: var(--color-secundario);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 50%;
+    font-size: 0.7em;
+}
+
+/* Sección de productos */
+#productos-container {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#productos-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+/* Grid de productos */
+#productos-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Ajusta el espacio entre los productos */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Estilo de cada producto */
+.product-item {
+    background-color: #fff;
+    padding: 15px;
+    width: 220px; /* Ajusta el tamaño del contenedor de los productos */
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Efecto de zoom para el contenedor */
+}
+
+
+/* Estilo de las imágenes de los productos */
+.product-item img {
+    width: 100%;  /* La imagen ocupa el 100% del contenedor */
+    height: 180px; /* Establece un tamaño fijo para la altura */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    border-radius: 10px;
+    transition: transform 0.3s ease; /* Efecto suave al hacer hover */
+}
+
+/* Espaciado para los textos de los productos */
+.product-item p {
+    margin: 10px 0;
+}
+
+.product-item button {
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-item button:hover {
+    background-color: #e73566;
+}
+
+/* Estilo del enlace de ver más */
+.view-more {
+    text-decoration: none;
+    color: var(--color-secundario);
+    font-weight: bold;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+}
+
+.footertext {
+    color: #fff;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    /* Ajustes para pantallas pequeñas (móviles) */
+    #productos-list {
+        flex-direction: column;
+        align-items: center; /* Centra los productos */
+    }
+
+    .product-item {
+        width: 90%; /* Productos más grandes en pantallas pequeñas */
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes para pantallas muy pequeñas (móviles) */
+    .product-item {
+        width: 100%; /* Productos ocupan todo el ancho */
+    }
+}

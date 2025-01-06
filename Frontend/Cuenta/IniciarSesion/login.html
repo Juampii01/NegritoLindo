@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="../../Imagenes/Logo inicio.png" type="image/x-icon">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="../../index.html" class="header-left">
+            <div class="logo">
+                <img src="../../imagenes/Logo inicio.png" alt="Logo de la Tienda">
+            </div>
+        </a>
+        <div class="header-actions-wrapper">
+            <a href="../CrearCuenta/signup.html" class="auth-button">Crear cuenta</a>
+            <div class="social-media">
+                <img src="../../Static/Logos/Instagram Logo.png" alt="Instagram">
+                <img src="../../Static/Logos/Facebook Logo.png" alt="Facebook">
+            </div>
+            <a href="../../Carrito/carrito.html" class="cart-link">
+                <img src="../../imagenes/Carrito.png" alt="Carrito">
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Formulario de Iniciar Sesión -->
+    <div class="login">
+        <h2>Iniciar Sesión</h2>
+        <form class="login-form">
+            <div class="form-group">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="submit-btn">Iniciar Sesión</button>
+        </form>
+
+        <!-- Enlace para olvidar la contraseña -->
+        <div class="forgot-password">
+            <a href="#">¿Olvidaste tu contraseña?</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footertext">© 2025 Tu Tienda. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

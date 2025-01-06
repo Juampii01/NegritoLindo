@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Ropa Antonela</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Imagenes/Logo inicio.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo-link">
+            <div class="logo">
+                <img src="imagenes/Logo inicio.png" alt="Logo de la Tienda">
+            </div>
+        </a>
+        <!-- Contenedor de las acciones de autenticación y carrito -->
+        <div class="header-actions-wrapper">
+            <!-- Botones de autenticación -->
+            <a href="Cuenta/CrearCuenta/signup.html" class="auth-button">Crear cuenta</a>
+            <a href="Cuenta/IniciarSesion/login.html" class="auth-button">Iniciar sesión</a>
+
+            <div class="social-media">
+                <a href="https://www.instagram.com/corsageintimate5/" target="_blank"><img src="Static/Logos/Instagram Logo.png" alt="Instagram"></a>
+                <a href="https://www.facebook.com/CorsageIntimate/" target="_blank"><img src="Static/Logos/Facebook Logo.png" alt="Facebook"></a>
+            </div>
+    
+            <!-- Carrito -->
+            <a href="Carrito/carrito.html" class="cart-link">
+                <img src="imagenes/Carrito.png" alt="Carrito">
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section id="home" class="banner">
+        <div class="banner-text">
+            <h2>¡Bienvenidas a Corsage!</h2>
+            <p class="envio"> Prendas hechas a mano especialmente para vos, con mucho amor; donde se destaca la feminidad y sobre todo, comodidad.</p>
+            <a href="Productos/tienda.html" class="cta-button">Ir a la Tienda</a>
+        </div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <section id="products" class="featured-products">
+        <h2>Productos Destacados</h2>
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="Imagenes/Ropa/images (1).jpeg" alt="Producto 1">
+                <p>Camisa Casual</p>
+                <p>$30</p>
+                <button>Agregar Al Carrito</button>
+            </div>
+            <div class="product-item">
+                <img src="Imagenes/Ropa/descarga.jpeg" alt="Producto 2">
+                <p>Pantalón Elegante</p>
+                <p>$40</p>
+                <button>Agregar Al Carrito</button>
+            </div>
+            <div class="product-item">
+                <img src="Imagenes/Ropa/conjunto-ropa-interior-mujer-modelo-rouge.jpg" alt="Producto 3">
+                <p>Vestido de Noche</p>
+                <p>$50</p>
+                <button>Agregar Al Carrito</button>
+            </div>
+            <div class="product-item">
+                <img src="Imagenes/Ropa/ropa-interior-marca.jpg" alt="Producto 4">
+                <p>Chaqueta de Invierno</p>
+                <p>$60</p>
+                <button>Agregar Al Carrito</button>
+            </div>
+        </div>
+        <a href="Productos/tienda.html" class="view-more">Ver Más</a>
+    </section>
+
+    <ul id="productos-lista">
+        <!-- Los productos se agregarán dinámicamente aquí -->
+      </ul>
+    
+      <script src="app.js"></script> <!-- Tu archivo de JavaScript -->
+
+    <!-- Footer -->
+    <footer>
+        <p class="footertext">&copy; 2025 Tienda Antonela | Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="static/js/scripts.js"></script>
+</body>
+</html>
