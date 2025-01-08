@@ -36,7 +36,7 @@
     <!-- Sección de Crear Cuenta -->
     <section id="create-account" class="create-account">
         <h2>Crear Cuenta</h2>
-        <form action="#" method="POST" class="account-form">
+        <form id="create-account-form" class="account-form">
             <div class="form-group">
                 <label for="nombre">Nombre Completo</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Tu Nombre Completo" required>
@@ -58,11 +58,14 @@
         <p class="already-have-account">¿Ya tienes cuenta? <a href="../IniciarSesion/login.html">Iniciar sesión</a></p>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     <!-- Footer -->
     <footer>
         <p class="footertext">&copy; 2025 Tienda Antonela | Todos los derechos reservados.</p>
     </footer>
 
-    <script src="../static/js/scripts.js"></script>
+    <script src="crear.js"></script>
 </body>
 </html>

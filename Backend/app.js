@@ -1,9 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise'); // Usamos la versión con promesas
 const multer = require('multer');
 const path = require('path');
 const cors = require('cors');
+const bcrypt = require('bcryptjs');
+const nodemailer = require('nodemailer');  // Importar Nodemailer
+
 
 const app = express();
 
@@ -12,13 +15,13 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-const db = mysql.createConnection({
+// Crear conexión con mysql2/promise
+const db = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: 'juampi',
     database: 'tienda'
 });
-const promiseDb = db.promise();
 
 // Configuración de Multer para manejo de archivos
 const storage = multer.diskStorage({
@@ -31,15 +34,6 @@ const storage = multer.diskStorage({
     }
 });
 const upload = multer({ storage: storage });
-
-// Conectar a la base de datos
-db.connect(err => {
-    if (err) {
-        console.error('Error de conexión a la base de datos:', err);
-        return;
-    }
-    console.log('Conectado a la base de datos');
-});
 
 // Ruta para agregar productos
 app.post('/productos', upload.single('imagen'), async (req, res) => {
@@ -64,7 +58,7 @@ app.post('/productos', upload.single('imagen'), async (req, res) => {
     try {
         const query = 'INSERT INTO productos (nombre, descripcion, precio, categoria_id, cantidad_stock, imagen) VALUES (?, ?, ?, ?, ?, ?)';
         const values = [nombre, descripcion, precio, categoria_id, cantidad_stock, imagen_nombre];
-        const [result] = await promiseDb.query(query, values);
+        const [result] = await db.query(query, values);
 
         res.status(201).json({
             mensaje: 'Producto agregado exitosamente',
@@ -81,7 +75,7 @@ app.post('/productos', upload.single('imagen'), async (req, res) => {
 app.get('/productos', async (req, res) => {
     const query = 'SELECT * FROM productos';
     try {
-        const [productos] = await promiseDb.query(query);
+        const [productos] = await db.query(query);
         res.status(200).json(productos);
     } catch (err) {
         console.error('Error al obtener productos:', err);
@@ -93,7 +87,7 @@ app.get('/productos', async (req, res) => {
 app.get('/productos/destacados', async (req, res) => {
     const query = 'SELECT * FROM productos WHERE destacado = 1 AND mostrar_en_tienda = 1';
     try {
-        const [productosDestacados] = await promiseDb.query(query);
+        const [productosDestacados] = await db.query(query);
         res.status(200).json(productosDestacados);
     } catch (err) {
         console.error('Error al obtener productos destacados:', err);
@@ -107,7 +101,7 @@ app.get('/productos/:id', async (req, res) => {
 
     try {
         const query = 'SELECT * FROM productos WHERE id = ?';
-        const [productos] = await promiseDb.query(query, [id]);
+        const [productos] = await db.query(query, [id]);
 
         if (productos.length === 0) {
             return res.status(404).json({ error: 'Producto no encontrado' });
@@ -121,18 +115,15 @@ app.get('/productos/:id', async (req, res) => {
 });
 
 // Ruta para eliminar un producto
-app.delete('/productos/:id', (req, res) => {
+app.delete('/productos/:id', async (req, res) => {
     const { id } = req.params;
 
     if (!id) {
         return res.status(400).json({ error: 'ID de producto no proporcionado' });
     }
 
-    db.query('DELETE FROM productos WHERE id = ?', [id], (error, results) => {
-        if (error) {
-            console.error('Error al eliminar el producto:', error);
-            return res.status(500).json({ error: 'Error al eliminar el producto' });
-        }
+    try {
+        const [results] = await db.query('DELETE FROM productos WHERE id = ?', [id]);
 
         if (results.affectedRows === 0) {
             return res.status(404).json({ error: 'Producto no encontrado' });
@@ -140,7 +131,10 @@ app.delete('/productos/:id', (req, res) => {
 
         console.log(`Producto con ID ${id} eliminado exitosamente.`);
         res.status(200).json({ message: 'Producto eliminado exitosamente' });
-    });
+    } catch (error) {
+        console.error('Error al eliminar el producto:', error);
+        res.status(500).json({ error: 'Error al eliminar el producto' });
+    }
 });
 
 // Ruta para actualizar productos
@@ -154,11 +148,44 @@ app.put('/productos/:id', async (req, res) => {
 
     try {
         const query = 'UPDATE productos SET destacado = ? WHERE id = ?';
-        await promiseDb.query(query, [destacado, id]);
+        await db.query(query, [destacado, id]);
         res.status(200).json({ mensaje: 'Producto actualizado exitosamente' });
     } catch (err) {
         console.error('Error al actualizar producto:', err);
         res.status(500).json({ error: 'Error al actualizar producto' });
+    }
+});
+
+// Ruta para crear cuenta de usuario
+app.post('/crearCuenta', async (req, res) => {
+    const { nombre, email, contraseña } = req.body;
+
+    try {
+        // Cifrar la contraseña
+        const hashedPassword = await bcrypt.hash(contraseña, 10);
+
+        // Aquí insertamos los datos en la base de datos
+        await db.query('INSERT INTO usuarios (nombre, email, contrasena) VALUES (?, ?, ?)', [nombre, email, hashedPassword]);
+
+        // Respuesta de éxito
+        res.json({
+            success: true,
+            message: 'Cuenta creada exitosamente',
+        });
+    } catch (error) {
+        console.error('Error al insertar en la base de datos:', error);
+        res.json({
+            success: false,
+            message: 'Hubo un error al crear tu cuenta',
+        });
+    }
+});
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',  // Usamos Gmail como ejemplo, puedes usar otro servicio.
+    auth: {
+        user: 'tu_correo@gmail.com',  // Tu correo electrónico
+        pass: 'tu_contraseña'         // Tu contraseña de Gmail o app password
     }
 });
 
