@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Productos - Corsage</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Detalles del Producto</title>
+  <link rel="stylesheet" href="ver.css">
 </head>
 <body>
   <!-- Header -->
@@ -31,13 +31,22 @@
     </div>
   </header>
 
-  <!-- Sección para mostrar productos -->
-  <main id="productos-container">
-    <h1>Productos Disponibles</h1>
-    <div class="product-item" id="productos-list">
-        
-      <!-- Agrega más productos aquí -->
-    </div>
+  <!-- Contenedor principal -->
+  <main>
+    <section id="producto-detalle" class="producto-detalle-wrapper">
+      <div class="producto-imagen">
+        <img id="imagen-producto" src="" alt="Producto" style="display: none;">
+      </div>
+      <div class="producto-info">
+        <h2 id="nombre-producto">Nombre del Producto</h2>
+        <p id="descripcion-producto">Descripción breve del producto.</p>
+        <div id="precio-producto">$29.99</div>
+        <div id="stock-producto">Stock disponible: 10</div>
+        <div id="envio">Envío disponible</div>
+        <button class="carrito-btn">Añadir al carrito</button>
+      </div>
+      <div id="error-message" style="display: none; color: red;"></div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -45,6 +54,6 @@
     <p class="footertext">&copy; 2025 Tienda Antonela | Todos los derechos reservados.</p>
   </footer>
 
-  <script src="scripts.js"></script>
+  <script src="producto.js"></script>
 </body>
 </html>

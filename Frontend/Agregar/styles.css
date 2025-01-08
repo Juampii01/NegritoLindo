@@ -221,3 +221,105 @@ header .logo img {
     border-radius: 5px;
     margin-top: 15px;
 }
+
+/* Productos */
+#productos-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    padding: 20px;
+}
+
+/* Tarjeta de producto */
+.producto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    padding-bottom: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    overflow: hidden;
+    height: 100%;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen del producto */
+.producto img {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+    margin-bottom: 12px;
+    border-radius: 8px;
+}
+
+/* Título del producto */
+.producto h3 {
+    font-size: 1.2em; /* Tamaño más destacado */
+    color: var(--color-secundario); /* Usa el color principal para destacar */
+    margin: 8px 0;
+    margin-bottom: 8px; /* Añade un margen para separación */
+    font-weight: bold;
+    text-transform: capitalize;
+}
+/* Precio y detalles */
+.producto p {
+    font-size: 1em; /* Un tamaño intermedio */
+    color: #666;
+    margin: 4px 0;
+    line-height: 1.4; /* Espaciado entre líneas para mejor lectura */
+    color: var(--color-letras); /* Tono más suave para contraste */
+    margin-bottom: 12px; /* Espacio entre líneas */
+}
+
+.producto p:last-child {
+    margin-bottom: 16px; /* Espacio extra debajo del último texto */
+  }
+
+/* Botón "Ver Producto" */
+.ver-producto-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-secundario);
+    color: white;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid var(--color-secundario); /* Borde para darle más estilo */
+    margin-top: auto;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1em; /* Ajusta el tamaño del texto */
+    padding: 10px 20px; /* Hacer el botón más grande y accesible */
+    
+}
+
+.ver-producto-btn:hover {
+    background-color: #E0005D;
+    transform: scale(1.05);
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    #productos-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+}
+.footertext{
+    color: #fff;
+}

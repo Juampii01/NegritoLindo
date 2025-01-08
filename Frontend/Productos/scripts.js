@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-      const response = await fetch('http://localhost:3000/productos');  // Solicitud GET para obtener los productos
+      // Realiza una solicitud GET para obtener los productos
+      const response = await fetch('http://localhost:3000/productos');
       const productos = await response.json();  // Respuesta en formato JSON
 
       const productosList = document.getElementById('productos-list');
@@ -25,8 +26,10 @@ document.addEventListener('DOMContentLoaded', async () => {
               <p>Precio: $${producto.precio}</p>
               <p>Categoría: ${producto.categoria}</p>
               <p>Stock: ${producto.cantidad_stock}</p>
+              <a href="producto.html?id=${producto.id}" class="ver-producto-btn">Ver Producto</a> <!-- Agregado el botón -->
           `;
 
+          // Añadir el producto a la lista de productos
           productosList.appendChild(productoDiv);
       });
   } catch (error) {
