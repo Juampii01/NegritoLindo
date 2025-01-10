@@ -189,6 +189,46 @@ const transporter = nodemailer.createTransport({
     }
 });
 
+// Endpoint de inicio de sesión
+app.post('/iniciarSesion', async (req, res) => {
+    const { email, password } = req.body;
+
+    // Validación inicial de los campos
+    if (!email || !password) {
+        return res.status(400).json({ success: false, message: 'El email y la contraseña son obligatorios.' });
+    }
+
+    try {
+        // Buscar al usuario en la base de datos
+        const [rows] = await db.query('SELECT * FROM usuarios WHERE email = ?', [email]);
+
+        if (rows.length === 0) {
+            return res.status(401).json({ success: false, message: 'Usuario no encontrado.' });
+        }
+
+        const usuario = rows[0];
+
+        // Verificar que el campo de contraseña no sea null o undefined
+        if (!usuario.contraseña) {
+            return res.status(500).json({ success: false, message: 'El usuario tiene una contraseña inválida en la base de datos.' });
+        }
+
+        // Comparar la contraseña ingresada con la almacenada
+        const match = await bcrypt.compare(password, usuario.contraseña);
+
+        if (!match) {
+            return res.status(401).json({ success: false, message: 'Contraseña incorrecta.' });
+        }
+
+        // Respuesta exitosa
+        res.status(200).json({ success: true, message: 'Inicio de sesión exitoso.', usuario: { id: usuario.id, nombre: usuario.nombre } });
+    } catch (error) {
+        console.error('Error al iniciar sesión:', error);
+        res.status(500).json({ success: false, message: 'Hubo un error en el servidor.' });
+    }
+});
+
+
 // Iniciar servidor
 app.listen(3000, () => {
     console.log('Servidor corriendo en el puerto 3000');
