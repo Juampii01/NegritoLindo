@@ -6,6 +6,9 @@
     <title>Tienda de Ropa Antonela</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="Imagenes/Logo inicio.png" type="image/x-icon">
+    
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -15,18 +18,13 @@
                 <img src="imagenes/Logo inicio.png" alt="Logo de la Tienda">
             </div>
         </a>
-        <!-- Contenedor de las acciones de autenticación y carrito -->
         <div class="header-actions-wrapper">
-            <!-- Botones de autenticación -->
             <a href="Cuenta/CrearCuenta/signup.html" class="auth-button">Crear cuenta</a>
             <a href="Cuenta/IniciarSesion/login.html" class="auth-button">Iniciar sesión</a>
-
             <div class="social-media">
                 <a href="https://www.instagram.com/corsageintimate5/" target="_blank"><img src="Static/Logos/Instagram Logo.png" alt="Instagram"></a>
                 <a href="https://www.facebook.com/CorsageIntimate/" target="_blank"><img src="Static/Logos/Facebook Logo.png" alt="Facebook"></a>
             </div>
-    
-            <!-- Carrito -->
             <a href="Carrito/carrito.html" class="cart-link">
                 <img src="imagenes/Carrito.png" alt="Carrito">
                 <span class="cart-count">0</span>
@@ -34,38 +32,37 @@
         </div>
     </header>
 
-    <!-- Banner Principal -->
-    <section id="home" class="banner">
-        <div class="banner-text">
-            <h2>¡Bienvenidas a Corsage!</h2>
-            <p class="envio"> Prendas hechas a mano especialmente para vos, con mucho amor; donde se destaca la feminidad y sobre todo, comodidad.</p>
-            <a href="Productos/tienda.html" class="cta-button">Ir a la Tienda</a>
+    <!-- Carrusel de imágenes -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="Imagenes/banner1.jpeg" alt="Banner 1"></div>
+            <div class="swiper-slide"><img src="imagenes/banner2.jpeg" alt="Banner 2"></div>
+            <div class="swiper-slide"><img src="imagenes/banner3.jpeg" alt="Banner 3"></div>
         </div>
-    </section>
-
-
+    </div>
+    
     <main id="productos-container">
         <div class="banner-text">
             <h1>Productos Destacados</h1>
         </div>
-        <div class="product-item" id="productos-list">
-            
-          <!-- Agrega más productos aquí -->
-        </div>
-      </main>
-
-      <section id="home" class="banner">
-        <div class="banner-text">
-            <a href="Productos/tienda.html" class="cta-button">Ver Más</a>            
-        </div>
-    </section>
-
+        <div class="product-item" id="productos-list"></div>
+    </main>
+    
     <footer>
         <p class="footertext">&copy; 2025 Tienda Antonela | Todos los derechos reservados.</p>
     </footer>
-
-    <script src="mostrar.js"></script> <!-- Tu archivo de JavaScript -->
-
-
+    
+    <!-- Swiper.js JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+        });
+    </script>
+    <script src="mostrar.js"></script>
 </body>
 </html>
