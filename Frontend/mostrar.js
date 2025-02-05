@@ -41,5 +41,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         productosList.innerHTML = '<p>Error al cargar los productos. Intenta de nuevo más tarde.</p>';
     }
   });
-  
-  
+  var swiper = new Swiper('.swiper-container', {
+    loop: true, // Hace que el carrusel sea infinito
+    autoplay: {
+        delay: 3000, // Cambia la imagen cada 3 segundos
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    effect: 'fade', // Puedes usar efectos como desvanecimiento entre imágenes
+});

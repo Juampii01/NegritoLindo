@@ -6,9 +6,6 @@
     <title>Tienda de Ropa Antonela</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="Imagenes/Logo inicio.png" type="image/x-icon">
-    
-    <!-- Swiper.js CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -18,13 +15,18 @@
                 <img src="imagenes/Logo inicio.png" alt="Logo de la Tienda">
             </div>
         </a>
+        <!-- Contenedor de las acciones de autenticación y carrito -->
         <div class="header-actions-wrapper">
+            <!-- Botones de autenticación -->
             <a href="Cuenta/CrearCuenta/signup.html" class="auth-button">Crear cuenta</a>
             <a href="Cuenta/IniciarSesion/login.html" class="auth-button">Iniciar sesión</a>
+
             <div class="social-media">
                 <a href="https://www.instagram.com/corsageintimate5/" target="_blank"><img src="Static/Logos/Instagram Logo.png" alt="Instagram"></a>
                 <a href="https://www.facebook.com/CorsageIntimate/" target="_blank"><img src="Static/Logos/Facebook Logo.png" alt="Facebook"></a>
             </div>
+    
+            <!-- Carrito -->
             <a href="Carrito/carrito.html" class="cart-link">
                 <img src="imagenes/Carrito.png" alt="Carrito">
                 <span class="cart-count">0</span>
@@ -32,37 +34,60 @@
         </div>
     </header>
 
-    <!-- Carrusel de imágenes -->
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="Imagenes/banner1.jpeg" alt="Banner 1"></div>
-            <div class="swiper-slide"><img src="imagenes/banner2.jpeg" alt="Banner 2"></div>
-            <div class="swiper-slide"><img src="imagenes/banner3.jpeg" alt="Banner 3"></div>
+    <div class="carousel-container">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <img src="imagenes/banner1.JPEG" alt="Imagen 1">
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <img src="imagenes/banner2.JPEG" alt="Imagen 2">
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <img src="imagenes/banner3.JPEG" alt="Imagen 3">
+                </div>
+            </div>
+            <!-- Controles de navegación -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+    
+            <!-- Paginación (si la quieres) -->
+            <div class="swiper-pagination"></div>
         </div>
     </div>
     
+
+    <!-- Banner Principal -->
+    <section id="home" class="banner">
+        <div class="banner-text">
+            <h2>¡Bienvenidas a Loreta!</h2>
+            <p class="envio"> Prendas hechas a mano especialmente para vos, con mucho amor; donde se destaca la feminidad y sobre todo, comodidad.</p>
+            <a href="Productos/tienda.html" class="cta-button">Ir a la Tienda</a>
+        </div>
+    </section>
+
     <main id="productos-container">
         <div class="banner-text">
             <h1>Productos Destacados</h1>
         </div>
-        <div class="product-item" id="productos-list"></div>
+        <div class="product-item" id="productos-list">
+            <!-- Agrega más productos aquí -->
+        </div>
     </main>
-    
+
+    <section id="home" class="banner">
+        <div class="banner-text">
+            <a href="Productos/tienda.html" class="cta-button">Ver Más</a>            
+        </div>
+    </section>
+
     <footer>
         <p class="footertext">&copy; 2025 Tienda Antonela | Todos los derechos reservados.</p>
     </footer>
-    
-    <!-- Swiper.js JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-        });
-    </script>
-    <script src="mostrar.js"></script>
+
+    <script src="mostrar.js"></script> <!-- Tu archivo de JavaScript -->
 </body>
 </html>

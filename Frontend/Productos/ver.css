@@ -7,10 +7,10 @@
 
 /* Variables de color */
 :root {
-    --color-principal: #ffcae6; /* Usar el color principal de la tienda */
-    --color-secundario: #FF4081; /* Usar el color principal de la tienda */
-    --color-letras: #9a9999; /* Usar el color de texto principal */
-    --color-fondo: #f3f3f3; /* Color de fondo similar al de la página actual */
+    --color-principal: #ffd9ce;
+    --color-secundario: #f8c2b8;
+    --color-letras: #9a9999;
+    --color-fondo: #f3f3f3;
 }
 
 /* Estilos generales */

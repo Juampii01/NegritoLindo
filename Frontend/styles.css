@@ -35,6 +35,33 @@ p {
 h2, p {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
+/* Container del carrusel */
+.carousel-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;  /* Asegura que solo se vea una imagen a la vez */
+}
+
+/* Estilo de la imagen dentro del carrusel */
+.swiper-container {
+    width: 100%;
+    height: 300px; /* Altura fija para las imágenes, ajusta según lo necesites */
+}
+
+.swiper-slide img {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+/* Opcional: Estilos para la paginación */
+.swiper-pagination {
+    bottom: 10px;
+}
+
+/* Botones de navegación */
+.swiper-button-prev, .swiper-button-next {
+    color: #fff; /* Color de los botones */
+}
 
 /* Header */
 header {
@@ -174,18 +201,6 @@ header .logo img {
 #productos-list:only-child {
     grid-template-columns: repeat(4, 1fr); /* Usar 4 columnas */
 }
-/* Carrusel */
-.swiper {
-    width: 100%;
-    height: 400px; /* Ajusta la altura */
-}
-
-.swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajusta las imágenes sin deformarlas */
-}
-
 /* Flechas de navegación */
 .swiper-button-prev, .swiper-button-next {
     color: var(--color-secundario); /* Color del botón */
@@ -259,7 +274,6 @@ header .logo img {
     transform: scale(1.05);
 }
 
-
 /* Media queries para pantallas pequeñas */
 @media (max-width: 768px) {
     #productos-list {
@@ -281,6 +295,6 @@ footer {
     background-color: #333;
 }
 
-.footertext{
+.footertext {
     color: #fff;
 }

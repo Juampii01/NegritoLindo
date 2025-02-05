@@ -7,12 +7,11 @@
 
 /* Variables de color */
 :root {
-    --color-principal: #ffcae6;
-    --color-secundario: #FF4081;
+    --color-principal: #ffd9ce;
+    --color-secundario: #f8c2b8;
     --color-letras: #9a9999;
     --color-fondo: #f3f3f3;
 }
-
 /* Estilos generales */
 body {
     font-family: 'Roboto', sans-serif;
