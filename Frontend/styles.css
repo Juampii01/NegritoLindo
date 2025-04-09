@@ -33,34 +33,50 @@ p {
 }
 
 h2, p {
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
-/* Container del carrusel */
+
+/* Carrusel funcional */
 .carousel-container {
     width: 100%;
     max-width: 100%;
-    overflow: hidden;  /* Asegura que solo se vea una imagen a la vez */
+    overflow: hidden;
 }
 
-/* Estilo de la imagen dentro del carrusel */
 .swiper-container {
     width: 100%;
-    height: 300px; /* Altura fija para las imágenes, ajusta según lo necesites */
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.swiper-wrapper {
+    display: flex;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: 150%;
+    height: 150%;
 }
 
 .swiper-slide img {
-    width: 100%; /* Ocupa todo el ancho del contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
-/* Opcional: Estilos para la paginación */
 .swiper-pagination {
     bottom: 10px;
 }
 
-/* Botones de navegación */
 .swiper-button-prev, .swiper-button-next {
-    color: #fff; /* Color de los botones */
+    color: var(--color-secundario);
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--color-secundario);
 }
 
 /* Header */
@@ -81,7 +97,7 @@ header {
 }
 
 header .logo img {
-    width: 100px; /* Ajusta el tamaño del logo */
+    width: 100px;
 }
 
 .social-media {
@@ -97,17 +113,15 @@ header .logo img {
 }
 
 .social-media img:hover {
-    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+    transform: scale(1.1);
 }
 
-/* Contenedor de las acciones de autenticación y carrito */
 .header-actions-wrapper {
     display: flex;
     gap: 15px;
     align-items: center;
 }
 
-/* Estilo general para los botones de autenticación */
 .auth-button {
     text-decoration: none;
     padding: 8px 15px;
@@ -121,7 +135,6 @@ header .logo img {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover para los botones */
 .auth-button:hover {
     background-color: var(--color-secundario);
     color: white;
@@ -132,7 +145,6 @@ header .logo img {
     color: white;
 }
 
-/* Carrito */
 .cart-link {
     text-decoration: none;
     display: flex;
@@ -145,11 +157,10 @@ header .logo img {
     height: 24px;
 }
 
-/* Contador del carrito */
 .cart-count {
     position: absolute;
-    top: -8px; /* Ajusta la posición superior */
-    right: -6px; /* Ajusta la posición derecha */
+    top: -8px;
+    right: -6px;
     background-color: var(--color-secundario);
     color: white;
     padding: 3px 8px;
@@ -192,25 +203,15 @@ header .logo img {
 /* Productos */
 #productos-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajustar el tamaño mínimo */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 16px;
     padding: 20px;
 }
 
-/* Cuando hay solo un producto, usar cuatro columnas */
 #productos-list:only-child {
-    grid-template-columns: repeat(4, 1fr); /* Usar 4 columnas */
-}
-/* Flechas de navegación */
-.swiper-button-prev, .swiper-button-next {
-    color: var(--color-secundario); /* Color del botón */
+    grid-template-columns: repeat(4, 1fr);
 }
 
-.swiper-pagination-bullet-active {
-    background-color: var(--color-secundario); /* Color de la paginación activa */
-}
-
-/* Tarjeta de producto */
 .producto {
     display: flex;
     flex-direction: column;
@@ -219,45 +220,40 @@ header .logo img {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 12px; /* Reducir espacio dentro de las tarjetas */
+    padding: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     overflow: hidden;
-    height: auto; /* Ajustar para que no se estire */
+    height: auto;
 }
 
 .producto img {
     max-width: 100%;
-    max-height: 120px; /* Reducir la altura máxima de las imágenes */
+    max-height: 120px;
     object-fit: contain;
     margin-bottom: 10px;
     border-radius: 8px;
 }
 
-/* Título del producto */
 .producto h3 {
-    font-size: 1.1em; /* Reducir tamaño del título */
+    font-size: 1.1em;
     color: var(--color-secundario);
     margin: 6px 0;
     font-weight: bold;
     text-transform: capitalize;
 }
 
-/* Precio y detalles */
 .producto p {
-    font-size: 0.95em; /* Reducir tamaño de los textos */
-    color: #666;
-    margin: 4px 0;
-    line-height: 1.4;
+    font-size: 0.95em;
     color: var(--color-letras);
-    margin-bottom: 10px;
+    margin: 4px 0 10px;
+    line-height: 1.4;
 }
 
-/* Botón "Ver Producto" */
 .ver-producto-btn {
     display: inline-block;
-    padding: 8px 16px; /* Reducir el tamaño del botón */
+    padding: 8px 16px;
     background-color: var(--color-secundario);
     color: white;
     text-decoration: none;
@@ -274,18 +270,17 @@ header .logo img {
     transform: scale(1.05);
 }
 
-/* Media queries para pantallas pequeñas */
 @media (max-width: 768px) {
     #productos-list {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Más pequeño en pantallas pequeñas */
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     }
 
     .producto {
-        padding: 10px; /* Menos padding para pantallas pequeñas */
+        padding: 10px;
     }
 
     .producto img {
-        max-height: 100px; /* Imágenes aún más pequeñas en pantallas pequeñas */
+        max-height: 100px;
     }
 }
 

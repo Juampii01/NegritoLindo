@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Ropa Antonela</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <link rel="icon" href="Imagenes/Logo inicio.png" type="image/x-icon">
 </head>
 <body>
@@ -12,23 +15,24 @@
     <header>
         <a href="index.html" class="logo-link">
             <div class="logo">
-                <img src="imagenes/Logo inicio.png" alt="Logo de la Tienda">
+                <img src="imagenes/Logo inicio.png" alt="Logo de la Tienda Antonela">
             </div>
         </a>
-        <!-- Contenedor de las acciones de autenticación y carrito -->
         <div class="header-actions-wrapper">
-            <!-- Botones de autenticación -->
             <a href="Cuenta/CrearCuenta/signup.html" class="auth-button">Crear cuenta</a>
             <a href="Cuenta/IniciarSesion/login.html" class="auth-button">Iniciar sesión</a>
 
             <div class="social-media">
-                <a href="https://www.instagram.com/corsageintimate5/" target="_blank"><img src="Static/Logos/Instagram Logo.png" alt="Instagram"></a>
-                <a href="https://www.facebook.com/CorsageIntimate/" target="_blank"><img src="Static/Logos/Facebook Logo.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/corsageintimate5/" target="_blank">
+                    <img src="Static/Logos/Instagram Logo.png" alt="Instagram CorsageIntimate">
+                </a>
+                <a href="https://www.facebook.com/CorsageIntimate/" target="_blank">
+                    <img src="Static/Logos/Facebook Logo.png" alt="Facebook CorsageIntimate">
+                </a>
             </div>
-    
-            <!-- Carrito -->
+
             <a href="Carrito/carrito.html" class="cart-link">
-                <img src="imagenes/Carrito.png" alt="Carrito">
+                <img src="imagenes/Carrito.png" alt="Carrito de compras">
                 <span class="cart-count">0</span>
             </a>
         </div>
@@ -37,34 +41,26 @@
     <div class="carousel-container">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <!-- Slide 1 -->
                 <div class="swiper-slide">
-                    <img src="imagenes/banner1.JPEG" alt="Imagen 1">
+                    <img src="imagenes/banner1.webp" alt="Modelo luciendo conjunto 1">
                 </div>
-                <!-- Slide 2 -->
                 <div class="swiper-slide">
-                    <img src="imagenes/banner2.JPEG" alt="Imagen 2">
+                    <img src="imagenes/banner2.JPEG" alt="Modelo luciendo conjunto 2">
                 </div>
-                <!-- Slide 3 -->
                 <div class="swiper-slide">
-                    <img src="imagenes/banner3.JPEG" alt="Imagen 3">
+                    <img src="imagenes/banner3.JPEG" alt="Modelo luciendo conjunto 3">
                 </div>
             </div>
-            <!-- Controles de navegación -->
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
-    
-            <!-- Paginación (si la quieres) -->
             <div class="swiper-pagination"></div>
         </div>
     </div>
-    
 
-    <!-- Banner Principal -->
-    <section id="home" class="banner">
+    <section id="inicio" class="banner">
         <div class="banner-text">
             <h2>¡Bienvenidas a Loreta!</h2>
-            <p class="envio"> Prendas hechas a mano especialmente para vos, con mucho amor; donde se destaca la feminidad y sobre todo, comodidad.</p>
+            <p class="envio">Prendas hechas a mano especialmente para vos, con mucho amor; donde se destaca la feminidad y sobre todo, comodidad.</p>
             <a href="Productos/tienda.html" class="cta-button">Ir a la Tienda</a>
         </div>
     </section>
@@ -74,13 +70,13 @@
             <h1>Productos Destacados</h1>
         </div>
         <div class="product-item" id="productos-list">
-            <!-- Agrega más productos aquí -->
+            <!-- Productos se cargan desde mostrar.js -->
         </div>
     </main>
 
-    <section id="home" class="banner">
+    <section class="banner">
         <div class="banner-text">
-            <a href="Productos/tienda.html" class="cta-button">Ver Más</a>            
+            <a href="Productos/tienda.html" class="cta-button">Ver Más</a>
         </div>
     </section>
 
@@ -88,6 +84,8 @@
         <p class="footertext">&copy; 2025 Tienda Antonela | Todos los derechos reservados.</p>
     </footer>
 
-    <script src="mostrar.js"></script> <!-- Tu archivo de JavaScript -->
+    <script src="mostrar.js"></script>
+
+    
 </body>
 </html>
